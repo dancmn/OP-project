@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+    <main>
+        <section class="main">
+            <div class="container">
+                <h1>Субботник</h1>
+                <p class="add-text">Сделаем город чище!</p>
+                <img src="img/main-img.svg" alt="">
+                <a href="" class="btn btn-outline-primary">Просмотреть заявки</a>
+                <a href="" class="btn btn-primary">Создать заявку</a>
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                <h2>Статистика</h2>
+                <p class="add-text">Кол-во убранных точек</p>
+                <img src="img/stat.svg" alt="">
+            </div>
+        </section>
+        <section class="applications">
+            <div class="container">
+                <h2>Заявки</h2>
+                <div>
+                    <h3 class="add-text open">Открытые</h3>
+                    <div class="app">
+                        <img src="img/trash1.jpg" alt="">
+                        <div class="app-right">
+                            <p class="app-map"><img src="img/map-icon.svg" alt="">Парк Горького</p>
+                            <p class="app-text">Мусорные баки переполненны, надо забрать мусор и раскидать по свободным бакам.</p>
+                            <p class="app-nums">Кол-во участников</p>
+                            <p class="num">8</p>
+                            <button type="button" class="btn btn-primary">Присоединиться</button>
+                        </div>
+                    </div>
+                    <div class="app">
+                        <img src="img/trash2.jpg" alt="">
+                        <div class="app-right">
+                            <p class="app-map"><img src="img/map-icon.svg" alt="">Парк Горького</p>
+                            <p class="app-text">Мусорные баки переполненны, надо забрать мусор и раскидать по свободным бакам.</p>
+                            <p class="app-nums">Кол-во участников</p>
+                            <p class="num">8</p>
+                            <button type="button" class="btn btn-primary">Присоединиться</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="add-text close">Закрытые</h3>
+                    <div class="app">
+                        <img src="img/trash3.jpg" alt="">
+                        <div class="app-right">
+                            <p class="app-map"><img src="img/map-icon.svg" alt="">Парк Горького</p>
+                            <p class="app-text">Мусорные баки переполненны, надо забрать мусор и раскидать по свободным бакам.</p>
+                            <p class="app-nums">Кол-во участников</p>
+                            <p class="num">8</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <form action="" method="post">
+                    <h2>Создать заявку</h2>
+                    
+                    <div class="mb-3">
+                        <label for="map" class="form-label">Местоположение</label>
+                        <br>
+                        <div id="map"></div>
+                    </div>
+                 
+                    <div class="mb-3">
+                        <label for="small-add" class="form-label">Краткое описание</label>
+                        <br>
+                        <textarea rows="5" cols="45" name="text" id="small-add"></textarea>
+                    </div>
+                
+                    <div class="mb-3">
+                        <label for="formFileSm" class="form-label">Фото-отчет</label>
+                        <br>
+                        <input class="form-control" id="formFileSm" type="file">
+                    </div>
+                
+                    <div class="mb-3">
+                        <label for="count" class="form-label">Кол-во участников</label>
+                        <br>
+                        <input type="text" id="count">
+                    </div>
+
+                    <div class="buttons">
+                        <input type="reset" value="Сбросить заявку" class="btn btn-outline-primary">
+                        <input type="submit" value="Отправить заявку" class="btn btn-primary">
+                    </div>
+                </form>
+                <script>
+                    var map = L.map('map').setView([0, 0], 2);
+                  
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                      attribution: '© OpenStreetMap contributors'
+                    }).addTo(map);
+                  
+                    var marker = L.marker([0, 0], { draggable: true }).addTo(map);
+                  
+                    marker.on('dragend', function (event) {
+                      var markerLocation = marker.getLatLng();
+                      document.getElementById('location').value = markerLocation.lat + ', ' + markerLocation.lng;
+                    });
+                  </script>
+                  
+            </div>
+        </section>
+    </main>
+</body>
+</html>
