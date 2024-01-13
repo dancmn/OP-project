@@ -1,0 +1,256 @@
+/* montserrat-500 - cyrillic_latin */
+/* montserrat-500 - cyrillic_latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    src: url('../static/fonts/montserrat-v26-cyrillic_latin-500.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* montserrat-600 - cyrillic_latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    src: url('../static/fonts/montserrat-v26-cyrillic_latin-600.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* montserrat-700 - cyrillic_latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../static/fonts/montserrat-v26-cyrillic_latin-700.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* montserrat-800 - cyrillic_latin */
+@font-face {
+    font-display: swap;
+    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 800;
+    src: url('../static/fonts/montserrat-v26-cyrillic_latin-800.woff2') format('woff2');
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+html,
+body {
+    min-height: 100vh;
+}
+
+:root {
+    font-size: 62.5%;
+    --bg-color: #0B0B0B;
+    --white: white;
+    --design-color: #068330;
+}
+
+body {
+    color: var(--white);
+    background-color: var(--bg-color);
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+    font-weight: 800;
+    font-size: 4rem;
+}
+
+h2 {
+    font-size: 2.4rem;
+    font-weight: 800;
+}
+
+.main {
+    margin-top: 42px;
+}
+
+.add-text {
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.btn-primary {
+    font-size: 1.2rem;
+    font-weight: 600;
+    --bs-btn-color: #fff;
+    --bs-btn-bg: var(--design-color);
+    --bs-btn-border-color: var(--design-color);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--design-color);
+    --bs-btn-hover-border-color: var(--design-color);
+    --bs-btn-focus-shadow-rgb: 49, 132, 253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--design-color);
+    --bs-btn-active-border-color: var(--design-color);
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: var(--design-color);
+    --bs-btn-disabled-border-color: var(--design-color);
+}
+
+.btn-outline-primary {
+    font-size: 1.2rem;
+    font-weight: 600;
+    --bs-btn-color: var(--white);
+    --bs-btn-border-color: var(--white);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--white);
+    --bs-btn-hover-border-color: var(--white);
+    --bs-btn-focus-shadow-rgb: 13, 110, 253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--white);
+    --bs-btn-active-border-color: var(--white);
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: var(--white);
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: var(--white);
+    --bs-gradient: none;
+}
+
+section {
+    margin: 42px 0;
+}
+
+.applications h2 {
+    margin-bottom: 30px;
+}
+
+.app {
+    display: grid;
+    grid-template-columns: 136px 1fr;
+    column-gap: 10px;
+    background-color: #1A1A1A;
+    border-radius: 8px;
+    padding: 10px;
+    max-height: 156px;
+    margin-bottom: 10px;
+}
+
+.app>img {
+    height: 136px;
+    width: 136px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.app-map {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.app-nums {
+    font-size: .8rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.app-text {
+    font-size: .8rem;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.num {
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    background-color: var(--design-color);
+    border-radius: 4px;
+    padding: 3px 8px;
+}
+
+.open {
+    color: var(--design-color);
+}
+
+.close {
+    color: red;
+}
+
+label {
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+.head {
+    display: flex;
+
+}
+
+h1 {
+    display: inline;
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.add-text {
+    text-align: center;
+}
+
+.auth {
+    margin-left: auto;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin-right: 2rem;
+    margin-top: 2rem;
+}
+
+.auth a {
+    font-size: 24px;
+    color: white;
+    text-decoration: none;
+}
+
+.auth p {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+.auth a:hover {
+    text-decoration: underline;
+}
+
+#map {
+    height: 700px;
+}
+
+.mapimg {
+    width: 100px;
+    height: 100px;
+    border-radius: 30px;
+    object-position: center;
+    object-fit: cover;
+}
+
+input,
+textarea {
+    font-size: 16px !important;
+}
+
+label[for="id_description"] {
+    color: red;
+}
+
+#id_description {
+    color: blue;
+}

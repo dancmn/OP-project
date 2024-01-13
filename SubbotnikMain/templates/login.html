@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Вход</title>
+</head>
+<body>
+  <h1>Вход</h1>
+  <form method="POST">
+    {{ form.as_p }}
+    <button type="submit">Войти</button>
+    <a href="{% url 'signup' %}">Нет аккаунта?</a>
+  </form>
+</body>
+</html>

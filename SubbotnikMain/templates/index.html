@@ -1,0 +1,90 @@
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=66056df9-c1bd-42e0-adaa-4e2ab8b24d7f" type="text/javascript"></script>
+    <script src="{% static 'scripts/placemark.js' %}" type="text/javascript"></script>
+    <script src="{% static 'scripts/script.js' %}" type="text/javascript"></script>
+    <link rel="stylesheet" href= "{% static 'style.css' %}">
+    <title>Субботник</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+    <main>
+
+<div class="head"><h1></h1>
+    {% if request.user.is_authenticated %}
+    <div class="auth"><p>Здравствуйте, {{ request.user.name }}</p>
+            <a class="logout" href="{% url 'logout' %}">Выйти</a></div>
+        {% else %}
+    <div class="auth">
+            <a class="login" href="{% url 'login' %}">Войти</a>
+            <a class="signup" href="{% url 'signup' %}">Зарегистрироваться</a></div>
+        {% endif %}</div>
+        <section class="main">
+            <div style="display: flex; flex-direction: column; gap: 10px; margin-inline: 10px;">
+                <h1>Субботник</h1>
+                <p class="add-text">Сделаем город чище!</p>
+                <img src="{% static 'main-img.svg' %}" alt="">
+            </div>
+        </section>
+        <section class="applications">
+            <div class="container">
+                <h2>Заявки</h2>
+                <div>
+                    <h3 class="add-text open">Открытые</h3>
+                    <ul>
+                        {% for marker in open_markers %}
+                            <li class="app">
+                               <img src="{{ marker.photo.url }}" />
+                                <div class="app-right">
+                                    <p class="app-map">{{ marker.markerName }}</p>
+                                    <p class="app-text">{{ marker.description }}</p>
+                                    <p class="app-nums">Кол-во участников</p>
+                                    <p class="num">{{ marker.signed.all.count }}</p>
+                                    <button id="button{{ marker.id }}" type="button" class="btn btn-primary">Присоединиться</button>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="add-text close">Закрытые</h3>
+                    <ul>
+                        {% for marker in closed_markers %}
+                            <li class="app">
+                                <img src="{{ marker.photo.url }}" />
+                                <div class="app-right">
+                                    <p class="app-map">{{ marker.markerName }}</p>
+                                    <p class="app-text">{{ marker.description }}</p>
+                                    <p class="app-nums">Кол-во участников</p>
+                                    <p class="num">{{ marker.signed | length }}</p>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <div id="map"></div>
+        <section>
+            <div class="container">
+                <form method="POST" action="./" enctype='multipart/form-data'>
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    {{ form.path }}
+                    <button type="reset">Сбросить заявку</button>
+                    <button type="submit">Отправить заявку</button>
+                </form>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
