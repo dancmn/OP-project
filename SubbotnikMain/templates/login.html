@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <title>Вход</title>
 </head>
-<body>
-  <h1>Вход</h1>
-  <form method="POST">
-    {{ form.as_p }}
-    <button type="submit">Войти</button>
-    <a href="{% url 'signup' %}">Нет аккаунта?</a>
-  </form>
+<body style="display: flex; justify-content: center; color: rgb(16, 197, 61); font-weight: 800; background-color: rgb(37, 147, 74);">
+  <div style="display: flex; justify-content: center; flex-direction: column; align-items: center; background-color: rgb(69, 70, 79); width: 400px; height: 300px; margin-top: 200px; border-radius: 10px; box-shadow: 0 10px 10px 0 rgb(36, 38, 48);">
+    <h1>Вход</h1>
+    <form method="POST">
+      {{ form.as_p }}
+      <button type="submit" style="margin-inline-end: 145px; border: none; border-radius: 10px; padding: 10px 10px; box-shadow: 0 10px 10px 0 rgb(36, 38, 48); background-color: rgb(16, 197, 61);  font-weight: 800">Войти</button>
+      <a href="{% url 'signup' %}" style="text-decoration: none; color: rgb(0, 0, 0); border: none; border-radius: 10px; padding: 10px 10px; box-shadow: 0 10px 10px 0 rgb(36, 38, 48); background-color: rgb(16, 197, 61);">Нет аккаунта?</a>
+    </form>
+</div>
 </body>
 </html>
